@@ -13,14 +13,13 @@ const Login = () => {
             email: email,
             password: password
         });
-
         
         setEmail('');
         setPassword('');
     };
 
     return (
-        <div className='flex items-center justify-center min-h-screen bg-gray-100'>
+        <div className='flex justify-center min-h-screen bg-gray-100 md:items-center items-start mt-10 md:mt-0'>
             <div className='bg-white p-8 rounded-lg shadow-md w-96'>
                 <div>
                     <h4 className='text-2xl font-bold mb-7 text-center text-gray-800'>Login</h4>
@@ -31,7 +30,7 @@ const Login = () => {
                         </label>
                         <input
                             type="email"
-                            className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F1F5F1]'
+                            className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200'
                             placeholder='Enter your email'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -45,7 +44,7 @@ const Login = () => {
                         </label>
                         <input
                             type="password"
-                            className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F1F5F1]'
+                            className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200'
                             placeholder='Enter your password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -61,7 +60,7 @@ const Login = () => {
 
                     <button
                         onClick={handleSubmit}
-                        className='w-full bg-[#D1D5D1] text-blac py-2 rounded-lg hover:bg-[#B0B5B0] transition duration-200 font-semibold cursor-pointer'
+                        className='w-full bg-gray-300 text-black py-2 rounded-lg hover:bg-gray-400 transition duration-200 font-semibold cursor-pointer'
                     >
                         Login
                     </button>
