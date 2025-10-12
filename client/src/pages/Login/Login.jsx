@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,26 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError('');
+        
+        // Basic validation
+        if (!email || !password) {
+            setError('Please fill email and password fields');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setError('Please enter a valid email address');
+            return;
+        }
+        
+        // Password validation (minimum 6 characters)
+        if (password.length < 6) {
+            setError('Password must be at least 6 characters long');
+            return;
+        }
         
         // Log the login data to console
         console.log('Login Data:', {
@@ -76,6 +97,10 @@ const Login = () => {
                     >
                         Login
                     </button>
+
+                    <p className='text-sm text-center mt-4'>Not registered yet?
+                        <Link className='text-gray-400 font-bold' to={'/signup'}> Signup</Link>
+                    </p>
                 </div>
             </div>
         </div>
